@@ -7,8 +7,9 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        HashMap();
+       ejercicio9();
     }
+
         public static void ArrayListas() {
             ArrayList<String> miLista = new ArrayList<>();//crear
             miLista.add("hola");
@@ -36,10 +37,12 @@ public class Main {
         productos.put("manzana", 1.5);
         productos.put("cebolla", 0.4);
         productos.put("papa", 0.5);
+        productos.put("manzana", 0.5);//se vuelve a escribir para cambiar su valor
         System.out.println(productos);
         System.out.println(productos.size());// tamaño
         System.out.println(productos.get("papa")); // valor lista
         System.out.println(productos.containsKey("manzana"));// si esta en la lista
+        System.out.println(productos.containsValue("papa"));// para comprobar si alguien se llama con el nombre que le de
         productos.remove("papa");//borrar
     }
     public static void exportar(){
@@ -155,4 +158,75 @@ public class Main {
             System.out.println("las listas tienen el mismo tamaño");
         }
     }
+    public static void ejercicio7(){
+        //Crear un HashMap de cadenas de texto y números enteros, que representan nombre y edad. Añadir 5 personas,
+        // pedir al usuario un nombre, y, si está en la lista, imprimir su edad y si es mayor de edad o no.
+        HashMap<String, Integer> personas = new HashMap<>();
+        personas.put("alba", 1);
+        personas.put("pepe", 20);
+        personas.put("maria", 3);
+        personas.put("ana", 4);
+        personas.put("ana mari", 5);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce un nombre:");
+        String nombre= sc.nextLine();
+        if(personas.containsKey(nombre)){
+            int edad = personas.get(nombre);
+            System.out.println("Tu edad es: " + edad);
+
+            if(edad >= 18){
+                System.out.println("Eres mayor de edad");
+            } else {
+                System.out.println("Eres menor de edad");
+            }
+        } else {
+            System.out.println("La persona no está en la lista");
+        }
+    }
+    public static void ejercicio8() {
+        //Crear un HashMap de cadenas de texto y números decimales, que representan nombre y nota media. Añadir 5 personas,
+        // pedir al usuario un nombre, y, si está en la lista, imprimir su nota media y si ha aprobado o no.
+        HashMap<String, Double> personas = new HashMap<>();
+        personas.put("alba", 10.0);
+        personas.put("pepe", 2.0);
+        personas.put("maria", 3.0);
+        personas.put("ana", 4.0);
+        personas.put("ana mari", 5.0);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce un nombre:");
+        String nombre = sc.nextLine();
+        if (personas.containsKey(nombre)) {
+            double notaMedia = personas.get(nombre);
+            System.out.println("Tu nota media es: " + notaMedia);
+
+            if (notaMedia >= 5) {
+                System.out.println("Aprobado");
+            } else {
+                System.out.println("Suspenso");
+            }
+        } else {
+            System.out.println("La persona no está en la lista");
+        }
+    }
+    public static void ejercicio9(){
+        //Crear un HashMap de cadenas de texto y cadenas de texto, que representan nombre de usuario y contraseña. Añadir 5 personas, pedir al usuario un nombre y una contraseña, y, si está en la lista y la contraseña coincide,
+        // imprimir “Login correcto”. De lo contrario, imprimir “Usuario y/o contraseña incorrectos”.
+        HashMap<String, String> personas = new HashMap<>();
+        personas.put("alba", "weewwq");
+        personas.put("pepe", "wqwqr");
+        personas.put("maria", "wqwqf");
+        personas.put("ana", "wqwq");
+        personas.put("ana mari", "wqwqm");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce un nombre");
+        String nombre = sc.nextLine();
+        System.out.println("Introduce una contrasenya");
+        String contrasenya = sc.nextLine();
+        if (personas.containsKey(nombre) && personas.get(nombre).equals(contrasenya)){
+            System.out.println("Login correcto");
+        } else{
+            System.out.println("contrasenya incorrecta");
+        }
+    }
+
 }

@@ -34,7 +34,7 @@ public class Personas {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) return false; //uno de los dos es null  y cuando sea diferentes
         Personas personas = (Personas) o;
         return edad == personas.edad && Objects.equals(nombre, personas.nombre);
     }
